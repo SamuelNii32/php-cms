@@ -9,7 +9,7 @@ secure();
 if( isset( $_GET['delete'] ) )
 {
   
-  $query = 'DELETE FROM projects
+  $query = 'DELETE FROM games
     WHERE id = '.$_GET['delete'].'
     LIMIT 1';
   mysqli_query( $connect, $query );
@@ -24,13 +24,13 @@ if( isset( $_GET['delete'] ) )
 include( 'includes/header.php' );
 
 $query = 'SELECT *
-  FROM projects
+  FROM games
   ORDER BY date DESC';
 $result = mysqli_query( $connect, $query );
 
 ?>
 
-<h2>Manage Projects</h2>
+<h2>Manage Games</h2>
 
 <table>
   <tr>
@@ -46,7 +46,9 @@ $result = mysqli_query( $connect, $query );
   <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
     <tr>
       <td align="center">
-        <img src="image.php?type=project&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside">
+        <!-- <img src="image.php?type=project&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside"> -->
+         <?php if($record['photo']): ?><img src="<?php echo $record['photo']; ?>"><?php endif; ?>
+
       </td>
       <td align="center"><?php echo $record['id']; ?></td>
       <td align="left">

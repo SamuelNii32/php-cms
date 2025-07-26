@@ -4,6 +4,7 @@ include( 'admin/includes/database.php' );
 include( 'admin/includes/config.php' );
 include( 'admin/includes/functions.php' );
 
+
 ?>
 <!doctype html>
 <html>
@@ -21,19 +22,23 @@ include( 'admin/includes/functions.php' );
 </head>
 <body>
 
-  <h1>Welcome to My Website!</h1>
-  <p>This is the website frontend!</p>
+  <h1>Welcome to our site!</h1>
+  <p>This is our game cms</p>
 
   <?php
 
   $query = 'SELECT *
-    FROM projects
+    FROM games
     ORDER BY date DESC';
   $result = mysqli_query( $connect, $query );
 
   ?>
+  <div id="login">
+    <a href="./admin/index.php/"> to log in click here</a>
 
-  <p>There are <?php echo mysqli_num_rows($result); ?> projects in the database!</p>
+  </div>
+
+  <p>There are <?php echo mysqli_num_rows($result); ?> projects in our system!</p>
 
   <hr>
 
@@ -46,13 +51,11 @@ include( 'admin/includes/functions.php' );
 
       <?php if($record['photo']): ?>
 
-        <p>The image can be inserted using a base64 image:</p>
+        <p>This is a sample image.</p>
 
         <img src="<?php echo $record['photo']; ?>">
 
-        <p>Or by streaming the image through the image.php file:</p>
 
-        <img src="admin/image.php?type=project&id=<?php echo $record['id']; ?>&width=100&height=100">
 
       <?php else: ?>
 

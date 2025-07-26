@@ -18,7 +18,7 @@ switch( $_GET['type'] )
   case 'project':
     
     $query = 'SELECT photo 
-      FROM projects
+      FROM games
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     $result = mysqli_query( $connect, $query );

@@ -20,7 +20,7 @@ if( isset( $_POST['title'] ) )
   if( $_POST['title'] and $_POST['content'] )
   {
     
-    $query = 'UPDATE projects SET
+    $query = 'UPDATE games SET
       title = "'.mysqli_real_escape_string( $connect, $_POST['title'] ).'",
       content = "'.mysqli_real_escape_string( $connect, $_POST['content'] ).'",
       date = "'.mysqli_real_escape_string( $connect, $_POST['date'] ).'",
@@ -44,7 +44,7 @@ if( isset( $_GET['id'] ) )
 {
   
   $query = 'SELECT *
-    FROM projects
+    FROM games
     WHERE id = '.$_GET['id'].'
     LIMIT 1';
   $result = mysqli_query( $connect, $query );
@@ -65,7 +65,7 @@ include( 'includes/header.php' );
 
 ?>
 
-<h2>Edit Project</h2>
+<h2>Edit Game</h2>
 
 <form method="post">
   

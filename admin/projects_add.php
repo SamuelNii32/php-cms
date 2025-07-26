@@ -12,7 +12,7 @@ if( isset( $_POST['title'] ) )
   if( $_POST['title'] and $_POST['content'] )
   {
     
-    $query = 'INSERT INTO projects (
+    $query = 'INSERT INTO games (
         title,
         content,
         date,
@@ -40,7 +40,7 @@ include( 'includes/header.php' );
 
 ?>
 
-<h2>Add Project</h2>
+<h2>Add Game</h2>
 
 <form method="post">
   
